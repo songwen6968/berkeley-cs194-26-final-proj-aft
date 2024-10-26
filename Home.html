@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="​Colorizing the Prokudin-Gorskii Collection, Overview, Colorizatio​n Pipeline​, 01, 02, 03, 04, Alignment Metrics, ​Reference Color Channel, ​Pyramid Search, ​Pyramid Search Algorithm, Gallery">
+    <meta name="description" content="">
+    <title>Home</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Home.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" "="" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" "="" defer=""></script>
+    <meta name="generator" content="Nicepage 4.17.10, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Site1"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Home">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-white u-header" id="sec-0750"><div class="u-clearfix u-sheet u-sheet-1">
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-clearfix u-grey-10 u-section-1" id="sec-7f3b">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h3 class="u-align-center u-text u-text-default u-text-1"> CS194-26 FINAL PROJECT</h3>
+        <h1 class="u-align-center u-text u-text-default u-text-2"> Gradient Domain Fushion &amp;&nbsp;Lightfield Camera&nbsp;</h1>
+        <p class="u-align-center u-large-text u-text u-text-variant u-text-3"> Songwen Zhao | songwenzhao (at) berkeley (dot) edu</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-65be">
+      <div class="u-align-left u-container-style u-group u-palette-1-light-2 u-group-1">
+        <div class="u-container-layout u-container-layout-1">
+          <h3 class="u-text u-text-1">FINAL PROJECT 1</h3>
+          <h1 class="u-text u-text-default u-text-2"> Gradient Domain Fushion</h1>
+          <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-10 u-section-3" id="sec-abdc">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-align-left u-text u-text-1">Overview</h1>
+        <p class="u-align-left u-text u-text-2">This project explores a rather creative blending technique which is completely different from multi-resolution blending we've learned in the previous project. It focuses on matching the tone of the source and the target images to make it more realistic, by reconstructing the source region while preserving the gradients. Going through this project, I've learned a lot and was impressed the most by that much of information gradients could tell us.</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-80 u-section-4" id="sec-0a83">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-align-left u-text u-text-1">01 ​Toy Problem</h1>
+        <p class="u-align-left u-text u-text-2"> Let's start with a toy example for sanity check.</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-5" id="sec-5077">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-default u-text-1">In this toy example, we will be implementing image reconstruction using gradients and only one pixel intensity of an source image. Let the source image be s, the reconstructed image be v. Suppose we use the pixel intensity of the top left corner. Then, to keep the x and y gradients and the intensity of that pixel unchanged, our objective would be minimizing the following.</p>
+        <img class="u-align-center u-image u-image-contain u-image-default u-image-1" src="images/Screenshot2022-12-14at16.15.47.png" alt="" data-image-width="1149" data-image-height="130">
+        <p class="u-align-left u-text u-text-default u-text-2">We know s. See each pixel intensity of v as an unknown variable, this optimization could be solved as a least squares problem with a sparse matrix. Below is my image reconstruction result, which is basically the same as the source image.&nbsp;&nbsp;</p>
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <img class="u-image u-image-2" src="images/toy_problem.png" data-image-width="110" data-image-height="119">
+                <p class="u-text u-text-default u-text-3">(a) source image</p>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item u-list-item-2">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <img class="u-image u-image-3" src="images/toy_result.jpg" data-image-width="139" data-image-height="150">
+                <p class="u-text u-text-default u-text-4">(b) reconstructed image</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-80 u-section-6" id="sec-a145">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-align-left u-text u-text-1">02 ​​Poisson Blending</h1>
+        <p class="u-align-left u-text u-text-2">Here we come, to image blending!&nbsp;</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-7" id="sec-1643">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-default u-text-1">Say we want to blend some part of a source image s a.k.a. the source region S onto a target image t to form a new image v. Let's first talk about the part of preprocessing work we have to do before blending, which is to select the source region and align it with the target image. In my experiment, I set the source region to be an arbitrary polygon inside the source image, selecting vertices of the polygon in counterclockwise order and then generating an 0-1 mask of the source region. Then to align it with the target image, I first rescale it and then translate it to where in the target image it should be blended at. Now we have the aligned source image, the target image and the mask indicating the source region. We could start poisson blending!<br>
+          <br>Using the same idea as in part1, we first compute the x and y gradients from s inside the source region, then use all the gradients, plus pixel intensities of t on the border of S, to solve for the part of v inside the area of S. We can formulate our objective as follows, which could also be solved as a least squares problem. The rest of v outside the area of S is just the same as the target image t.&nbsp;&nbsp;<br>
+        </p>
+        <img class="u-align-center u-image u-image-contain u-image-default u-image-1" src="images/Screenshot2022-12-14at17.11.19.png" alt="" data-image-width="1271" data-image-height="136">
+        <p class="u-text u-text-default u-text-2">Time to show my results!</p>
+        <h3 class="u-text u-text-default u-text-3">Example 1</h3>
+        <p class="u-text u-text-default u-text-4">I first tried to blend a penguin on top of the snow in a hiking image. Here I first visualized the source region mask, which is a polygon of 9 vertices. Then to align the source region with the target image, I scaled it by 2.45 and then translated it by (630,974).</p>
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <img class="u-expanded-width u-image u-image-default u-image-2" src="images/source_region.jpg" alt="" data-image-width="999" data-image-height="500">
+                  <p class="u-text u-text-default u-text-5">(a) source region</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <img class="u-expanded-width u-image u-image-default u-image-3" src="images/aligned_source_region.jpg" alt="" data-image-width="2816" data-image-height="2112">
+                  <p class="u-text u-text-default u-text-6">(b) aligned source region</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-3">
+                <div class="u-container-layout u-valign-top u-container-layout-3">
+                  <img class="u-expanded-width u-image u-image-default u-image-4" src="images/im3.jpg" alt="" data-image-width="2816" data-image-height="2112">
+                  <p class="u-text u-text-default u-text-7">(c) target image</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="u-text u-text-default u-text-8">The blending result below is pretty good!</p>
+        <img class="u-align-center u-image u-image-default u-image-5" src="images/result1.jpg" alt="" data-image-width="2816" data-image-height="2112">
+        <h3 class="u-text u-text-default u-text-9">Example 2</h3>
+        <p class="u-text u-text-default u-text-10"> This time I tried to blend another front-face penguin on top of the snow in another hiking image. Here I first visualized the source region mask, which is a polygon of 6 vertices. Then to align the source region with the target image, I scaled it by 1.02 and then translated it by (439,1539).</p>
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-2">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-4">
+                <div class="u-container-layout u-container-layout-4">
+                  <img class="u-expanded-width u-image u-image-default u-image-6" src="images/source_region1.jpg" alt="" data-image-width="1212" data-image-height="500">
+                  <p class="u-text u-text-default u-text-11">(a) source region</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-5">
+                <div class="u-container-layout u-valign-top u-container-layout-5">
+                  <img class="u-image u-image-default u-image-7" src="images/aligned_source_region1.jpg" alt="" data-image-width="2112" data-image-height="2816">
+                  <p class="u-text u-text-default u-text-12">(b) aligned source region</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-6">
+                <div class="u-container-layout u-valign-top u-container-layout-6">
+                  <img class="u-image u-image-default u-image-8" src="images/im2.jpg" alt="" data-image-width="1440" data-image-height="1920">
+                  <p class="u-text u-text-default u-text-13">(c) target image</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="u-text u-text-default u-text-14">This is a failure case (which I intened to do so). The penguin was blended across the mountain and the snow which is of completely different color. The background of the object in the source region and the surrounding area of the target region need to be of similar color, or at least the background should be roughly the same color, in order to make a successful result.</p>
+        <img class="u-align-center u-image u-image-default u-image-9" src="images/result2.jpg" alt="" data-image-width="2112" data-image-height="2816">
+        <h3 class="u-text u-text-default u-text-15">Example 3</h3>
+        <p class="u-text u-text-default u-text-16">Here I tried to blend a swimming dog into a&nbsp;magma pool!&nbsp; Here I first visualized the source region mask, which is a polygon of 8 vertices. Then to align the source region with the target image, I scaled it by&nbsp;0.85 and then translated it by (​148,81).&nbsp;</p>
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-3">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-7">
+                <div class="u-container-layout u-container-layout-7">
+                  <img class="u-expanded-width u-image u-image-default u-image-10" src="images/source_region2.jpg" alt="" data-image-width="3900" data-image-height="954">
+                  <p class="u-text u-text-default u-text-17">(a) source region</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-8">
+                <div class="u-container-layout u-container-layout-8">
+                  <img class="u-expanded-width u-image u-image-default u-image-11" src="images/aligned_source_region2.jpg" alt="" data-image-width="1293" data-image-height="769">
+                  <p class="u-text u-text-default u-text-18">(b) aligned source region</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-9">
+                <div class="u-container-layout u-container-layout-9">
+                  <img class="u-expanded-width u-image u-image-default u-image-12" src="images/magma-pool.jpg" alt="" data-image-width="1293" data-image-height="769">
+                  <p class="u-text u-text-default u-text-19">(c) target image</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="u-text u-text-default u-text-20">The result is super cool! Seeing a dog swimming in a magma pool.</p>
+        <img class="u-align-center u-image u-image-default u-image-13" src="images/result.jpg" alt="" data-image-width="1293" data-image-height="769">
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-80 u-section-8" id="sec-56a4">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-align-left u-text u-text-1">03 ​​Bells &amp; Whistles:&nbsp;<b>Mixed Gradients</b>
+        </h1>
+        <p class="u-align-left u-text u-text-2">Dive one more step deep into Poisson blending, combine the gradients of the source and the target for reconstruction.</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-9" id="sec-ad2b">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-default u-text-1">In this part, we follow the same steps as Poisson blending, but use the gradient in source or target with the larger magnitude as the guide, rather than the source gradient, which can be formulated as the following.&nbsp;</p>
+        <img class="u-image u-image-contain u-image-default u-image-1" src="images/Screenshot2022-12-14at17.59.23.png" alt="" data-image-width="1127" data-image-height="193">
+        <p class="u-text u-text-default u-text-2">I tried to blend a handwritten quote onto a wall using a ​quadrilateral mask. ​To align the source region with the target image, I scaled it by&nbsp;0.35 and then translated it by (​134,97). Then use Mixed Gradients to generate the result.&nbsp;</p>
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <img class="u-expanded-width u-image u-image-default u-image-2" src="images/handwriting.jpg" alt="" data-image-width="1280" data-image-height="559">
+                  <p class="u-text u-text-default u-text-3">(a) source image</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <img class="u-expanded-width u-image u-image-default u-image-3" src="images/wall.jpg" alt="" data-image-width="741" data-image-height="360">
+                  <p class="u-text u-text-default u-text-4">(b) target image</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-20 u-layout-cell-3">
+                <div class="u-container-layout u-container-layout-3">
+                  <img class="u-expanded-width u-image u-image-default u-image-4" src="images/result3.jpg" alt="" data-image-width="741" data-image-height="360">
+                  <p class="u-text u-text-default u-text-5">(c) blending result</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-10" id="sec-9786">
+      <div class="u-align-left u-container-style u-group u-palette-2-light-2 u-group-1">
+        <div class="u-container-layout u-container-layout-1">
+          <h3 class="u-text u-text-1">FINAL PROJECT 2</h3>
+          <h1 class="u-text u-text-default u-text-2"> Lightfield Camera</h1>
+          <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-10 u-section-11" id="sec-3270">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-align-left u-text u-text-1">Overview</h1>
+        <p class="u-align-left u-text u-text-2">You may notice that when taking everyday photos, things that you are not focusing on may blur. Once you snap it, there's no way to recover a sharper image of what has been blurred in the photo. This means that you must decide what you want in focus before you take the photo. Or do you? Think about how cool it would be if you can simulate countles post-processing&nbsp;effects changing focus, adjusting aperture as you want even after your photo was taken. That's exactly what a lightfield camara enables you.&nbsp;<br>
+          <br>In this project, we will ​use the lightfield data from the&nbsp;<a href="http://lightfield.stanford.edu/lfs.html" class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">Stanford Light Field Archive</a>&nbsp;and focus on the two post-processing&nbsp;effects mentioned just above: depth refocusing and aperture adjustment. Going through this project gives me a deep understanding of the lightfield and how we could generate different kinds of photos through it, which is really rewarding.&nbsp;<br>
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-80 u-section-12" id="sec-c91a">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-align-left u-text u-text-1">01 Depth Refocusing </h1>
+        <p class="u-align-left u-text u-text-2">Change your focus as you want in a photo taken by lightfield camara!</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-13" id="sec-969d">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-default u-text-1">Each photo in the Stanford dataset is represented as a collection of 289 sub-aperture images taken over a 17 x 17 grid on a plane orthogonal to the optical axis. You can think of each sub-aperture image as the light that comes through different part of some universal aperture. Say that part is a small area around (u,v) on the universal aperture. Then the whole bunch of images could be seen as a light field, L(u,v,s,t), which is the light travelling through (u,v) on the aperture plane and (s,t) on the image plane. ​As Ng. et al. describe in&nbsp;<a href="http://graphics.stanford.edu/papers/lfcamera/lfcamera-150dpi.pdf" target="_blank" class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-text-palette-1-base u-btn-1">this paper</a>, a photo E generated through light field L is equal to the following, where alpha is a measure of the&nbsp;focal length. ​"Examining this equation reveals the important observation that re-focusing is conceptually just a summation of shifted versions of
+these&nbsp;sub-aperture images." For each image, that shift can be determined by the image's aperture coordinates u,v.&nbsp;&nbsp;<br>
+        </p>
+        <img class="u-image u-image-contain u-image-default u-image-1" src="images/Screenshot2022-12-14at23.03.55.png" alt="" data-image-width="1157" data-image-height="182">
+        <p class="u-align-left u-text u-text-default u-text-2">In my depth refocusing algorithm, I chose the&nbsp;sub-aperture image corresponding to grid point (8,8) as my center image and shifted all other images towards it. For each image, the shift&nbsp;amount is ​the difference of that image's ​u,v position and the center image's ​u,v position scaled by a factor C. After shifting, I simply averaged all the shifted images to produce my result. The smaller C is, the more distant objects would be focused on.&nbsp;<br>
+        </p>
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <img class="u-image u-image-default u-image-2" src="images/pt11.gif" alt="" data-image-width="420" data-image-height="240">
+                  <p class="u-text u-text-default u-text-3">(b) Candy, C from -0.6 to 0.1</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <img class="u-expanded-width u-image u-image-default u-image-3" src="images/pt1.gif" alt="" data-image-width="1024" data-image-height="512">
+                  <p class="u-text u-text-default u-text-4">(b) Candy, C from -0.6 to 0.1</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-grey-80 u-section-14" id="sec-acfa">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-align-left u-text u-text-1">02 ​​Aperture Adjustment</h1>
+        <p class="u-align-left u-text u-text-2">Change the aperture size for a overall-sharp or focused photo!</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-15" id="sec-437d">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-text u-text-default u-text-1">Based on our understanding of the light field, aperture adjustment with lightfield data is rather simple. As mentioned above,&nbsp;each sub-aperture image can be thought of as the light that comes through u,v on the aperture plane. Let the u,v coordinates of the image corresponding to grid point (8,8) as our aperture center. Then, to set the aperture radius to r is just to only include those images with u,v&nbsp;​inside the&nbsp;circle of radius r to the aperture center when taking the average.&nbsp;<br>
+          <br>Here, I varied the relative aperture radius from 0.1 to 1 with step 0.05, and produced the following aperture changing results.&nbsp;
+        </p>
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <img class="u-image u-image-default u-image-1" src="images/pt2.gif" alt="" data-image-width="700" data-image-height="400">
+                  <p class="u-text u-text-default u-text-2">(b) Candy, r from 0.1 to 1, C = 0.1</p>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <img class="u-expanded-width u-image u-image-default u-image-2" src="images/pt21.gif" alt="" data-image-width="1024" data-image-height="512">
+                  <p class="u-text u-text-default u-text-3">(b) Candy, ​r from 0.1 to 1, C = -0.1</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-2ce7"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">Songwen Zhao<br> CS194-26: Computer Vision and Computational Photography<br>Final Project:&nbsp;​​​​​​​​Gradient Domain Fushion &amp;&nbsp;Lightfield Camera&nbsp;
+        </p>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  
+</body></html>
